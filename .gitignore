@@ -1,0 +1,11 @@
+# Logs
+logs
+*.log
+
+/node_modules/
+typings
+ts-node
+
+#IDE configuration files
+.idea
+*.iml
