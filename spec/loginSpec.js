@@ -90,6 +90,7 @@ describe("My Sample Login App ||  HTML Side Test || Check For Successfull Form S
         spyOn(event, 'preventDefault').and.callFake(function() {});
         expect(onLoginFormSubmit(event)).toBe(false);
         expect(document.querySelectorAll("span[class=error]").length).toEqual(1);
+        expect(document.getElementById("emailError")).toBeDefined();
 
     });
 
@@ -105,6 +106,7 @@ describe("My Sample Login App ||  HTML Side Test || Check For Successfull Form S
         spyOn(event, 'preventDefault').and.callFake(function() {});
         expect(onLoginFormSubmit(event)).toBe(false);
         expect(document.querySelectorAll("span[class=error]").length).toEqual(1);
+        expect(document.getElementById("passwordError")).toBeDefined();
 
     });
 
@@ -120,6 +122,8 @@ describe("My Sample Login App ||  HTML Side Test || Check For Successfull Form S
         spyOn(event, 'preventDefault').and.callFake(function() {});
         expect(onLoginFormSubmit(event)).toBe(false);
         expect(document.querySelectorAll("span[class=error]").length).toEqual(2);
+        expect(document.getElementById("emailError")).toBeDefined();
+        expect(document.getElementById("passwordError")).toBeDefined();
 
     });
 
@@ -134,6 +138,7 @@ describe("My Sample Login App ||  HTML Side Test || Check For Successfull Form S
         const event = { preventDefault: function() {}};
         spyOn(event, 'preventDefault').and.callFake(function() {});
         expect(onLoginFormSubmit(event)).toBe(false);
+        expect(document.getElementById("incorrectCredError")).toBeDefined();
 
     });
 
@@ -147,7 +152,8 @@ describe("My Sample Login App ||  HTML Side Test || Check For Successfull Form S
         loginForm[1].value = password;
         const event = { preventDefault: function() {}};
         spyOn(event, 'preventDefault').and.callFake(function() {});
+        // expect(onLoginFormSubmit(event)).toBe(true);
         expect(localStorage.getItem("authToken")).toBeDefined();
-
+        // expect(document.URL).toEqual("file:///D:/Code/src/index.html");
     });
 });
